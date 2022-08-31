@@ -1,14 +1,16 @@
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('test');
+        resolve(12345);
     }, 1000);
 });
 
-async () => {
+(async () => {
     const text = await promise;
     console.log(text);
-};
+})();
 
 const logSomething = () => {
     console.log('something...');
 };
+
+logSomething();
