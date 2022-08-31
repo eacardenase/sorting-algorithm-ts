@@ -1,43 +1,25 @@
-class Sorter {
-    constructor(public collection: number[]) {}
+import Sorter from './Sorter';
+import NumbersCollection from './NumbersCollection';
+import CharactersCollection from './CharactersCollection';
+import LinkedList from './LinkedList';
 
-    sort(): void {
-        // let end = this.collection.length - 1;
-        // let noSwaps: boolean;
+// const numbersCollection = new NumbersCollection([10, 3, -5, 0, 1]);
+// const charactersCollection = new CharactersCollection('Xaayb');
 
-        // for (let i = end; i >= 0; i--) {
-        //     noSwaps = true;
+// const sorter = new Sorter(charactersCollection);
+// console.log(charactersCollection.data);
+// sorter.sort();
+// console.log(charactersCollection.data);
 
-        //     for (let j = 0; j <= i; j++) {
-        //         if (this.collection[j] > this.collection[j + 1]) {
-        //             let temp = this.collection[j];
-        //             this.collection[j] = this.collection[j + 1];
-        //             this.collection[j + 1] = temp;
+const linkedList = new LinkedList();
+linkedList.add(550);
+linkedList.add(-10);
+linkedList.add(-3);
+linkedList.add(4);
 
-        //             noSwaps = false;
-        //         }
-        //     }
+linkedList.print();
 
-        //     if (noSwaps) {
-        //         break;
-        //     }
-        // }
-
-        let len = this.collection.length - 1;
-
-        for (let i = 0; i <= len; i++) {
-            for (let j = 0; j < len - i; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    let temp = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = temp;
-                }
-            }
-        }
-    }
-}
-
-const sorter = new Sorter([10, 3, -5, 0, 1]);
-console.log(sorter.collection);
+const sorter = new Sorter(linkedList);
 sorter.sort();
-console.log(sorter.collection);
+
+linkedList.print();
