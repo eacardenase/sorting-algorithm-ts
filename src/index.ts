@@ -1,16 +1,31 @@
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(12345);
-    }, 1000);
-});
+class Sorter {
+    constructor(public collection: number[]) {}
 
-(async () => {
-    const text = await promise;
-    console.log(text);
-})();
+    sort(): void {
+        let end = this.collection.length - 1;
+        let noSwaps: boolean;
 
-const logSomething = () => {
-    console.log('something...');
-};
+        for (let i = end; i >= 0; i--) {
+            noSwaps = true;
 
-logSomething();
+            for (let j = 0; j <= i; j++) {
+                if (this.collection[j] > this.collection[j + 1]) {
+                    let temp = this.collection[j];
+                    this.collection[j] = this.collection[j + 1];
+                    this.collection[j + 1] = temp;
+
+                    noSwaps = false;
+                }
+            }
+
+            if (noSwaps) {
+                break;
+            }
+        }
+    }
+}
+
+const sorter = new Sorter([10, 3, -5, 0, 1]);
+console.log(sorter.collection);
+sorter.sort();
+console.log(sorter.collection);
