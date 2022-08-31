@@ -2,24 +2,36 @@ class Sorter {
     constructor(public collection: number[]) {}
 
     sort(): void {
-        let end = this.collection.length - 1;
-        let noSwaps: boolean;
+        // let end = this.collection.length - 1;
+        // let noSwaps: boolean;
 
-        for (let i = end; i >= 0; i--) {
-            noSwaps = true;
+        // for (let i = end; i >= 0; i--) {
+        //     noSwaps = true;
 
-            for (let j = 0; j <= i; j++) {
+        //     for (let j = 0; j <= i; j++) {
+        //         if (this.collection[j] > this.collection[j + 1]) {
+        //             let temp = this.collection[j];
+        //             this.collection[j] = this.collection[j + 1];
+        //             this.collection[j + 1] = temp;
+
+        //             noSwaps = false;
+        //         }
+        //     }
+
+        //     if (noSwaps) {
+        //         break;
+        //     }
+        // }
+
+        let len = this.collection.length - 1;
+
+        for (let i = 0; i <= len; i++) {
+            for (let j = 0; j < len - i; j++) {
                 if (this.collection[j] > this.collection[j + 1]) {
                     let temp = this.collection[j];
                     this.collection[j] = this.collection[j + 1];
                     this.collection[j + 1] = temp;
-
-                    noSwaps = false;
                 }
-            }
-
-            if (noSwaps) {
-                break;
             }
         }
     }
